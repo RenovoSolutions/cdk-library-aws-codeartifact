@@ -30,7 +30,7 @@ Add a CodeArtifact Domain to your stack:
 ```ts
 import * as codeartifact from '@renovosolutions/cdk-library-aws-codeartifact';
 
-new codeartifact.Domain(stack, 'domain', { domainName: 'example-domain' });
+new codeartifact.Domain(stack, 'domain', { name: 'example-domain' });
 ```
 
 Add a CodeArtifact Repository to your stack:
@@ -38,9 +38,9 @@ Add a CodeArtifact Repository to your stack:
 ```ts
 import * as codeartifact from '@renovosolutions/cdk-library-aws-codeartifact';
 
-const domain = new codeartifact.Domain(stack, 'domain', { domainName: 'example-domain' });
+const domain = new codeartifact.Domain(stack, 'domain', { name: 'example-domain' });
 const repository = new codeartifact.Repository(stack, 'repository', {
-    repositoryName: 'repository',
+    name: 'repository',
     domain,
 });
 ```
@@ -50,10 +50,10 @@ It is also possible to use the `addRepository` method on `codeartifact.Domain` t
 ```ts
 import * as codeartifact from '@renovosolutions/cdk-library-aws-codeartifact';
 
-const domain = new codeartifact.Domain(stack, 'domain', { domainName: 'example-domain' });
+const domain = new codeartifact.Domain(stack, 'domain', { name: 'example-domain' });
 
 domain.addRepository('repo', {
-  repositoryName: 'repository'
+  name: 'repository'
 });
 
 ```
