@@ -2,7 +2,8 @@ import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
-  cdkVersion: '2.99.1',
+  cdkVersion: '2.202.0',
+  jsiiVersion: '^5.8.0',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-aws-codeartifact',
   description: 'AWS CDK Construct Library to manage AWS Code Artifact resources',
@@ -64,7 +65,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   eslint: true,
   publishToPypi: {
     distName: 'renovosolutions.aws-cdk-aws-codeartifact',
-    module: 'codeartifact',
+    module: 'renovosolutions_codeartifact',
   },
   publishToNuget: {
     dotNetNamespace: 'renovosolutions',
