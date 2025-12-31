@@ -14,14 +14,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk-construct',
     'projen',
   ],
+  buildWorkflow: false,
   depsUpgrade: true,
   depsUpgradeOptions: {
+    workflow: false,
     workflowOptions: {
       labels: ['auto-approve', 'deps-upgrade'],
     },
   },
   githubOptions: {
-    mergify: true,
+    mergify: false,
     mergifyOptions: {
       rules: [
         {
@@ -44,7 +46,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       ],
     },
     pullRequestLintOptions: {
-      semanticTitle: true,
+      semanticTitle: false,
       semanticTitleOptions: {
         types: [
           'chore',
@@ -60,7 +62,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  releaseWorkflow: true,
+  release: true,
   docgen: true,
   eslint: true,
   publishToPypi: {
@@ -79,4 +81,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: ['**/__pycache__/**'],
   projenrcTs: true,
 });
+
+// Ignore the release workflow file so it's not committed to git
+project.gitignore.exclude('!/.github/workflows/release.yml');
+project.gitignore.addPatterns('.github/workflows/release.yml');
+
 project.synth();

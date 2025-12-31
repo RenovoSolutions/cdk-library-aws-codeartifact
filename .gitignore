@@ -3,8 +3,6 @@
 !/.projen/tasks.json
 !/.projen/deps.json
 !/.projen/files.json
-!/.mergify.yml
-!/.github/workflows/pull-request-lint.yml
 !/package.json
 !/LICENSE
 !/.npmignore
@@ -35,11 +33,8 @@ jspm_packages/
 /test-reports/
 junit.xml
 /coverage/
-!/.github/workflows/build.yml
 /dist/changelog.md
 /dist/version.txt
-!/.github/workflows/release.yml
-!/.github/workflows/upgrade-master.yml
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
@@ -50,4 +45,6 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+!/.github/workflows/release.yml
+.github/workflows/release.yml
 !/.projenrc.ts
